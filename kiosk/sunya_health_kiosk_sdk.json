@@ -1,0 +1,114 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Sunya Health Kiosk SDK",
+      "version": "1.0.0",
+      "description": "SDK for integrating the Sunya Health Kiosk functionality into mobile apps."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000",
+        "description": "Local Development Server"
+      }
+    ],
+    "paths": {
+      "/take-test": {
+        "post": {
+          "summary": "Initiates a health test on the kiosk.",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/send-battery-status": {
+        "post": {
+          "summary": "Sends the battery status of the mobile device to the kiosk.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "batteryStatus": {
+                      "type": "integer",
+                      "description": "The battery status in percentage."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/send-on-time": {
+        "post": {
+          "summary": "Sends the kiosk on time to the mobile device.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "onTime": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The kiosk on time."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/send-off-time": {
+        "post": {
+          "summary": "Sends the kiosk off time to the mobile device.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "offTime": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The kiosk off time."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/send-message": {
+        "post": {
+          "summary": "Sends a message from the mobile device to the kiosk.",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    }
+  }
+  
